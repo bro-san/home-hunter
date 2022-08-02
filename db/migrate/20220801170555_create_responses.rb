@@ -3,7 +3,6 @@ class CreateResponses < ActiveRecord::Migration[6.1]
     create_table :responses do |t|
       t.string :location
       t.integer :price
-      t.string :type
       t.string :tag1
       t.string :tag2
       t.string :tag3
