@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2022_08_02_172003) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
   end
 
   create_table "requests", force: :cascade do |t|
