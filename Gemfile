@@ -21,6 +21,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'faker'
 
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
