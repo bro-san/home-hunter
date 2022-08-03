@@ -24,10 +24,10 @@ default: &default
 development:
   <<: *default
   
-  database: react_rails_api_project_template_development
+  database: justinhobbs
   host: localhost
   port: 5432
-  user: davidhoy
+  user: justinhobbs
   # password: 
 
   # The specified database role being used to connect to postgres.
@@ -62,9 +62,9 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: react_rails_api_project_template_test
+  database: justinhobbs
   port: 5432
-  user: davidhoy
+  user: justinhobbs
   # password: 
 
 
