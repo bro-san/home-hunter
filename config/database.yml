@@ -27,8 +27,8 @@ development:
   database: react_rails_api_project_template_development
   host: localhost
   port: 5432
-  user: test
-  password: test
+  user: davidhoy
+  # password: 
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -64,8 +64,8 @@ test:
   <<: *default
   database: react_rails_api_project_template_test
   port: 5432
-  user: test
-  password: test
+  user: davidhoy
+  # password: 
 
 
 # As with config/credentials.yml, you never want to store sensitive information,
