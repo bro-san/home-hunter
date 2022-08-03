@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+
+
+
   def create
     realtor = Realtor.find_by_username(params[:username])
     if realtor&.authenticate(params[:password])
@@ -9,7 +12,13 @@ class SessionsController < ApplicationController
     end
   end
 
+
+
   def destroy
       session.delete(:realtor_id) 
   end
+
+
+
 end
+ 
