@@ -9,8 +9,8 @@ function NavBar(){
         <Header>
             <Menu textAlign="center">
                   <Button class='ui button'>
-                     Home
                      <NavLink exact to='/'>   
+                     Home
                      </NavLink>
                   </Button>
                <Menu.Item class='navbar'>
