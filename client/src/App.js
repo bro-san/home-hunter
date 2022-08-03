@@ -13,14 +13,14 @@ function App() {
         <NavBar />
       </Header>
       <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
           <Route exact path="/realtors">
             <RealtorPage /> 
           </Route>
           <Route exact path="/homebuyer">
             <HomeBuyerPage />
+          </Route>
+          <Route exact path="/">
+            <Home />
           </Route>
       </Switch>
     </>
