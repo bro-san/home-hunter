@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-
+  skip_before_action :authenticate_realtor, only: [:create]
 
   def create
     realtor = Realtor.find_by_username(params[:username])
