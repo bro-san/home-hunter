@@ -22,13 +22,14 @@ function HomeBuyerPage(){
        e.preventDefault();
        fetch("http://localhost:3000/requests", {
           method: "POST",
+        //   mode: 'no-cors',
           headers: {
              "Content-Type": "application/json",
           },
           body: JSON.stringify({
-             hom_buyer_id: homeBuyer,
-            //  location_specific: locationSpecific,
-             location_size: locationSize,
+             hom_buyer_id: parseInt(homeBuyer),
+            //  location_specific: locationSpecific, 
+            location_size: parseInt(locationSize),
              comment: comment,
              wish1: wish1,
              wish2: wish2,
@@ -47,6 +48,7 @@ function HomeBuyerPage(){
              setWish3("")
              setImage("")
           })
+          .then(console.log("it posted!"))
     }
 
     console.log("homebuyer:", homeBuyer, "locationSize:", locationSize, "Comment:", comment, "wish1:", wish1, "wish2:", wish2, "wish3:", wish3, "Image:", image)
@@ -62,6 +64,9 @@ function HomeBuyerPage(){
                     </Label>
                 </Form.Field> */}
                 <Form.Field>
+                    <Label for="buyerform">Home Buyer ID: <br></br> <br></br>
+                        <Input placeholder='0' onChange={(e) => setHomeBuyer(e.target.value)}/>
+                    </Label>
                 </Form.Field>
                 <Form.Field>
                     <Label for="buyerform">Desired Square Footer: <br></br> <br></br>
