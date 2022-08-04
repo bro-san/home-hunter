@@ -16,7 +16,7 @@ function App() {
   const [requests, setRequests] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:3000/requests')
+    fetch('https://real-genie.herokuapp.com/requests')
         .then(resp => resp.json())
         .then(data => setRequests(data))
 }, [])

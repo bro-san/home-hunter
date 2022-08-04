@@ -20,7 +20,7 @@ function HomeBuyerPage(){
 
     function handleSubmit(e) {
        e.preventDefault();
-       fetch("http://localhost:3000/requests", {
+       fetch("https://real-genie.herokuapp.com/requests", {
           method: "POST",
         //   mode: 'no-cors',
           headers: {
