@@ -5,6 +5,8 @@ import NavBar from './component/NavBar'
 import Home from './component/Home';
 import HomeBuyerPage from "./component/HomeBuyerPage";
 import RealtorPage from "./component/RealtorPage";
+import Signup from "./component/Signup";
+import Login from "./component/Login";
 
 function App() {
   return (
@@ -18,6 +20,12 @@ function App() {
           </Route>
           <Route exact path="/homebuyer">
             <HomeBuyerPage />
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
+          <Route exact path="/login">
+            <Login />
           </Route>
           <Route exact path="/">
             <Home />
