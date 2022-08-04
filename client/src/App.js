@@ -19,7 +19,13 @@ function App() {
         .then(data => setRequests(data))
 }, [])
 
-console.log(requests)
+// console.log(requests)
+
+function handleDelete(id) {
+  const deleteCard = requests.filter(request => request.id !== id)
+  setRequests(deleteCard)
+  console.log("Deleted!")
+}
   
   return (
     <>
@@ -28,7 +34,7 @@ console.log(requests)
       </Header>
       <Switch>
           <Route exact path="/realtors">
-            <RealtorPage requests={requests}/> 
+            <RealtorPage requests={requests} handleDelete={handleDelete}/> 
           </Route>
           <Route exact path="/homebuyer">
             <HomeBuyerPage/>
