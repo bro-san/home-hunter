@@ -16,6 +16,8 @@ class RequestsController < ApplicationController
 
     def destroy
         request = Request.find(params[:id])
+        response = Response.where(request_id: params[:id])
+        response.destroy_all
         request.destroy
         head :no_content
     end

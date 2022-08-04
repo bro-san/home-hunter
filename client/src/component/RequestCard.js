@@ -5,7 +5,7 @@ import { Card, Button, Icon } from "semantic-ui-react";
 function RequestCard ({id, buyer_id, locationSize, comment, wish1, wish2, wish3, image, handleDelete}){
 
     function handleClick() {
-        fetch(`https://real-genie.herokuapp.com/requests/${id}`, {
+        fetch(`http://localhost:3000/requests/${id}`, {
             method: "DELETE"
         })
         handleDelete(id)  

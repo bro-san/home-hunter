@@ -20,14 +20,14 @@ function HomeBuyerPage(){
 
     function handleSubmit(e) {
        e.preventDefault();
-       fetch("https://real-genie.herokuapp.com/requests", {
+       fetch("http://localhost:3000/requests", {
           method: "POST",
         //   mode: 'no-cors',
           headers: {
              "Content-Type": "application/json",
           },
           body: JSON.stringify({
-             hom_buyer_id: parseInt(homeBuyer),
+             home_buyer_id: parseInt(homeBuyer),
             //  location_specific: locationSpecific, 
             location_size: parseInt(locationSize),
              comment: comment,
