@@ -13,15 +13,24 @@ function NavBar(){
                      Home
                      </NavLink>
                   </Button>
+
                <Menu.Item class='navbar'>
-                  <Button primary>Sign up
-                     {/* <NavLink exact to='/'>
-                     </NavLink> */}
+                  <Button primary>
+                     <NavLink exact to='/signup'>
+                     Sign up
+                     </NavLink>
                   </Button>
                </Menu.Item>
+
                <Menu.Item class='navbar'>
-                  <Button>Log-in</Button>
+                  <Button>
+                  <NavLink exact to='/login'>   
+                     Log-in
+                     </NavLink>
+                     </Button>
                </Menu.Item>
+
+
             </Menu>
             {/* <Button icon>
                <NavLink exact to='/animals'>

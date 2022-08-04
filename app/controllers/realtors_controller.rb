@@ -10,24 +10,26 @@ class RealtorsController < ApplicationController
     
 
     def show
+        
        realtor = Realtor.find(params[:id])
        render json: realtor, status: :ok
     end
 
     def create
+        
         realtor = Realtor.create(realtor_params)
-        if realtor.valid?
-            session[:realtor_id] = realtor.realtor.id
-            render json: realtor, status: :ok
-        else
-            render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
-        end
+        # session[:realtor_id] = realtor.realtor.id
+        render json: realtor, status: :ok
+     
+
+        
+        
         
     end
 
     private
 
     def realtor_params
-        params.permit(:name, :company, :location, :username, :email, :password)
+        params.permit(:name, :company, :location, :username, :email, :password, :admin, :name)
     end
 end
