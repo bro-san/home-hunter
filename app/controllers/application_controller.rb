@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::API
   # before_action :authenticate_realtor
-  include ActionController::Cookies
+  # include ActionController::Cookies
 
-  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
-  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
+  # rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
+  # rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
   # def current_user
   #   @current_user ||= Realtor.find_by_id(session[:realtor_id]) #memoization, to make as little calls to the db as possible
