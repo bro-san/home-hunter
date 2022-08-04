@@ -9,7 +9,6 @@ const options = [
   ]
 
 function HomeBuyerPage(){
-   
     return (
         <>
             <h1>Homebuyer</h1>
@@ -28,18 +27,18 @@ function HomeBuyerPage(){
                     </Label>
                 </Form.Field>
                 <Form.Field>
-                    <Label for="buyerform">Desire #1: <br></br> <br></br>
-                        <Input placeholder="What's your wish?" />
+                    <Label for="buyerform">Wish #1: <br></br> <br></br>
+                        <Input placeholder="What's your first wish?" />
                     </Label>
                 </Form.Field>
                 <Form.Field>
-                    <Label for="buyerform">Desire #2: <br></br> <br></br>
-                        <Input placeholder="What's your wish?" />
+                    <Label for="buyerform">Wish #2: <br></br> <br></br>
+                        <Input placeholder="What's your second wish?" />
                     </Label>
                 </Form.Field>
                 <Form.Field>
-                    <Label for="buyerform">Desire #3: <br></br> <br></br>
-                        <Input placeholder="What's your wish?" />
+                    <Label for="buyerform">Wish #3: <br></br> <br></br>
+                        <Input placeholder="What's your third wish?" />
                     </Label>
                 </Form.Field>
                 <Form.Field>
