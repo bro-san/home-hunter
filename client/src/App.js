@@ -19,8 +19,6 @@ function App() {
         .then(data => setRequests(data))
 }, [])
 
-console.log(requests)
-
 const [responses, setResponses] = useState([])
 
   useEffect(() => {
@@ -29,8 +27,12 @@ const [responses, setResponses] = useState([])
         .then(data => setResponses(data))
 }, [])
 
-console.log(responses)
-  
+function handleDelete(id) {
+  const deleteCard = requests.filter(request => request.id !== id)
+  setRequests(deleteCard)
+  console.log("Deleted!")
+}
+
   return (
     <>
       <Header>
@@ -38,7 +40,7 @@ console.log(responses)
       </Header>
       <Switch>
           <Route exact path="/realtors">
-            <RealtorPage requests={requests}/> 
+            <RealtorPage requests={requests} handleDelete={handleDelete}/> 
           </Route>
           <Route exact path="/homebuyer">
             <HomeBuyerPage responses={responses}/>
