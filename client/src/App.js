@@ -19,7 +19,7 @@ function App() {
         .then(data => setRequests(data))
 }, [])
 
-console.log(requests)
+// console.log(requests)
   
   return (
     <>
