@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2022_08_03_152029) do
     t.string "city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "phone"
+    t.string "phone"
   end
 
   create_table "realtors", force: :cascade do |t|
@@ -41,9 +41,10 @@ ActiveRecord::Schema.define(version: 2022_08_03_152029) do
     t.boolean "location_specific"
     t.integer "location_size"
     t.string "comment"
-    t.string "tag1"
-    t.string "tag2"
-    t.string "tag3"
+    t.string "wish1"
+    t.string "wish2"
+    t.string "wish3"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["home_buyer_id"], name: "index_requests_on_home_buyer_id"
@@ -52,9 +53,9 @@ ActiveRecord::Schema.define(version: 2022_08_03_152029) do
   create_table "responses", force: :cascade do |t|
     t.string "location"
     t.integer "price"
-    t.string "tag1"
-    t.string "tag2"
-    t.string "tag3"
+    t.string "wish1"
+    t.string "wish2"
+    t.string "wish3"
     t.string "description"
     t.bigint "home_buyer_id", null: false
     t.bigint "realtor_id", null: false

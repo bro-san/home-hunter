@@ -8,6 +8,7 @@ class CreateRequests < ActiveRecord::Migration[6.1]
       t.string :tag1
       t.string :tag2
       t.string :tag3
+      t.string :image
 
       t.timestamps
     end
