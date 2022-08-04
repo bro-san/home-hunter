@@ -8,20 +8,19 @@ function NavBar(){
 
         <Header>
             <Menu textAlign="center">
-                  <Button class='ui button'>
-                     <NavLink exact to='/'>   
-                     Home
-                     </NavLink>
-                  </Button>
-               <Menu.Item class='navbar'>
-                  <Button primary>Sign up
-                     {/* <NavLink exact to='/'>
-                     </NavLink> */}
-                  </Button>
+               <Menu.Item>
+                  <NavLink exact to='/'>   
+                     <Button>Home</Button>
+                  </NavLink>
                </Menu.Item>
-               <Menu.Item class='navbar'>
-                  <Button>Log-in</Button>
-               </Menu.Item>
+               <Menu.Menu position='right'>
+                  <Menu.Item class='navbar'>
+                     <Button primary>Sign up</Button>
+                  </Menu.Item>
+                  <Menu.Item class='navbar'>
+                     <Button>Log-in</Button>
+                  </Menu.Item>
+               </Menu.Menu>
             </Menu>
             {/* <Button icon>
                <NavLink exact to='/animals'>

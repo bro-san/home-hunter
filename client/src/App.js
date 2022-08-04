@@ -20,6 +20,16 @@ function App() {
 }, [])
 
 console.log(requests)
+
+const [responses, setResponses] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:3000/responses')
+        .then(resp => resp.json())
+        .then(data => setResponses(data))
+}, [])
+
+console.log(responses)
   
   return (
     <>
@@ -31,7 +41,7 @@ console.log(requests)
             <RealtorPage requests={requests}/> 
           </Route>
           <Route exact path="/homebuyer">
-            <HomeBuyerPage/>
+            <HomeBuyerPage responses={responses}/>
           </Route>
           <Route exact path="/">
             <Home />

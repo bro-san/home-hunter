@@ -6,7 +6,7 @@ import { Container } from 'semantic-ui-react';
 
 
 function RealtorPage({requests}){
-   
+   console.log(requests)
     const requestList = requests.map(request => {
         return <RequestCard key={request.id} buyer_id={request.home_buyer_id} locationNeed={request.location_size} comment={request.comment} wish1={request.wish1} wish2={request.wish2} wish3={request.wish3}/>
     })

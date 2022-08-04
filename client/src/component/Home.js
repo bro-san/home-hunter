@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Container, Card, Menu } from "semantic-ui-react";
+import { Header, Container, Menu } from "semantic-ui-react";
 // import { Image } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 
@@ -22,11 +22,6 @@ function Home(){
                     </h2>
                 </Menu.Item>
             </Menu>
-        <Card.Group itemsPerRow={1}>
-        {/* <Card>
-            <Header class="ui huge header">New Addition:</Header>
-        </Card> */}
-        </Card.Group>
         </Container>
     )
 }
