@@ -5,12 +5,16 @@ import { Container } from 'semantic-ui-react';
 // import { useState, useEffect } from 'react';
 
 
-function RealtorPage(){
+function RealtorPage({requests}){
    
+    const requestList = requests.map(request => {
+        return <RequestCard request={request} key={request.id} />
+    })
+
     return (
         <Container textAlign="center"> 
             <h1>Realtor</h1>
-            <RequestCard />
+            {requestList}
         </Container>
         
     )
