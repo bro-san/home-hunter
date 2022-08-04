@@ -4,8 +4,12 @@ import { Card, Form, Label, Button, Input } from 'semantic-ui-react';
 
 const Signup = () => {
   return (
-    <div>Signup</div>
+    <Container textAlign="center"> 
+        <h1>Signup</h1>
+            
+    </Container>
+        
   )
 }
 
-export default Signup
+export default Signup;
