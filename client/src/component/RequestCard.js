@@ -8,10 +8,10 @@ function RequestCard ({buyer_id, locationNeed, comment, wish1, wish2, wish3}){
         <Card>
                 <Card.Content class="header">{buyer_id}'s Request</Card.Content >
                 <Card.Content  class="header">Desired size of home: {locationNeed} ft</Card.Content >
-                <Card.Content  class="header">{wish1}</Card.Content >
-                <Card.Content  class="header">{wish2}</Card.Content>
-                <Card.Content  class="header">{wish3}</Card.Content >
-                <Card.Content  class="header">{comment}</Card.Content >
+                <Card.Content  class="header">Buyer's wish #1: {wish1}</Card.Content >
+                <Card.Content  class="header">Buyer's wish #2: {wish2}</Card.Content>
+                <Card.Content  class="header">Buyer's wish #3:{wish3}</Card.Content >
+                <Card.Content  class="header">Buyer's comments:{comment}</Card.Content >
                     <Button >Respond</Button>
                 <Button animated>
                     <Button.Content visible>Delete Request?</Button.Content>
