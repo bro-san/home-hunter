@@ -24,10 +24,11 @@ default: &default
 development:
   <<: *default
   
-  database: davidhoy
+
+  database: brodysmac
   host: localhost
   port: 5432
-  user: davidhoy
+  user: brodysmac
   # password: 
 
   # The specified database role being used to connect to postgres.
@@ -62,9 +63,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: davidhoy
+
+  database: brodysmac
   port: 5432
-  user: davidhoy
+  user: brodysmac
   # password: 
 
 

@@ -22,7 +22,7 @@ function Home(){
                     </h2>
                 </Menu.Item>
             </Menu>
-        <Card.Group itemsPerRow={1}>
+        <Card.Group itemsPerRow={4}>
         {/* <Card>
             <Header class="ui huge header">New Addition:</Header>
         </Card> */}
