@@ -12,7 +12,7 @@
     },
     "dependencies": {
         "serve": "^14.0.1"
-    }
+    },
     "scripts": { 
         "dev": "react-scripts start", 
         "start": "serve -s build",
