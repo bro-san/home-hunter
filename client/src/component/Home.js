@@ -8,7 +8,10 @@ function Home(){
     return (
         <Container textAlign="center">
         <Header class="ui sizer vertical segment">
-            <h1 class="ui huge header ">Welcome to HomeHunter!</h1>  
+            <h1 class="ui huge header ">Welcome to Real Genie!</h1>  
+        </Header>
+        <Header class="ui sizer vertical segment">
+            <h2 class="ui header ">Where realtors are ready to grant your wishes</h2>  
         </Header>
             <Menu  fluid widths={2} class="ui two column grid">
                 <Menu.Item textAlign="center" class="column">

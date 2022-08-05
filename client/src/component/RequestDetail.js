@@ -1,62 +1,122 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Card, Button, Icon } from "semantic-ui-react";
+import { Card, Container, Form, Label, Button, Input } from 'semantic-ui-react';
 
 
 
 const RequestDetail = () => {
-   const [request, setRequest] = useState([]);
-   const [isLoaded, setIsLoaded] = useState(false);
-
-   const { id } = useParams();
+   const [formData, setFormData] = useState({
+      home_buyer_id: "",
+      location_size: "",
+      comment: "",
+      wish1: "",
+      wish2: "",
+      wish3: "",
+      image: "",
+    });
+  
+    const { home_buyer_id, location_size, comment, wish1, wish2, wish3, image} = formData;
+  
+    const { id } = useParams();
+  
 
    useEffect(() => {
       fetch(`http://localhost:3000/requests/${id}`)
          .then((r) => r.json())
-         .then((request) => {
-            setRequest(request);
-            setIsLoaded(true);
-         });
+         .then((request) => setFormData(request))
    }, [id]);
 
-   if (!isLoaded) return <h2>Loading...</h2>;
+   const handleChange = (e) => {
+      const { name, value } = e.target;
+      setFormData({ ...formData, [name]: value });
+    };
 
-   const { home_buyer_id, location_size, comment, wish1, wish2, wish3, image } = request;
-
-   // function handleSubmit(e) {
-   //    e.preventDefault();
-   //    const updatedRequest = [...easterEggs, eggText]
-   //    fetch(`http://localhost:3000/requests/${id}`, {
-   //       method: "PATCH",
-   //       headers: {
-   //          "Content-Type": "application/json",
-   //       },
-   //       body: JSON.stringify({
-   //          easterEggs: newEggs,
-   //       }),
-   //    })
-   //       .then((r) => r.json())
-   //       .then((updatedGame) => {onAddEgg(updatedGame)
-   //          setEggs(updatedGame.easterEggs)
-   //       })
-   //       .then(() => {
-   //          setEggText("")
-            
-   //       })
-   //    }
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const configObj = {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      };
+  
+      fetch(`http://localhost:3000/requests/${id}`, configObj)
+        .then((resp) => resp.json())
+        .then(console.log("It updated!"));
+    };
 
    return (
-   <Card>
-      <Card.Content class="header">{home_buyer_id}'s Request</Card.Content >
-      <Card.Content class="header"><img src={image} alt={home_buyer_id + "'s request"}/></Card.Content>
-      {/* <Card.Content  class="header">Willing to relocate: {locationNeed ? "Yes":"No"} </Card.Content > */}
-      <Card.Content  class="header">Desired size of home: {location_size} ft</Card.Content >
-      <Card.Content  class="header">Buyer's wish #1: {wish1}</Card.Content >
-      <Card.Content  class="header">Buyer's wish #2: {wish2}</Card.Content>
-      <Card.Content  class="header">Buyer's wish #3:{wish3}</Card.Content >
-      <Card.Content  class="header">Buyer's comments:{comment}</Card.Content >
-</Card>
-   );
+      <form onSubmit={handleSubmit} className="form" autoComplete="off">
+      <h3>Edit Request</h3>
+
+      <label htmlFor="homeBuyerID">Home ID#</label>
+      <input
+        type="text"
+        id="homeBuyerID"
+        name="homeBuyerID"
+        value={home_buyer_id}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="locationSize">Location Size</label>
+      <input
+        type="text"
+        id="locationSize"
+        name="locationSize"
+        value={location_size}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="wish1">Wish #1</label>
+      <input
+        type="text"
+        id="wish1"
+        name="wish1"
+        value={wish1}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="wish2">Wish #2</label>
+      <input
+        type="text"
+        id="wish2"
+        name="wish2"
+        value={wish2}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="wish3">Wish #3</label>
+      <input
+        type="text"
+        id="wish3"
+        name="wish3"
+        value={wish3}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="image">Inspirational Image</label>
+      <input
+        type="text"
+        id="image"
+        name="image"
+        value={image}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="comment">Comment</label>
+      <input
+        type="text"
+        id="comment"
+        name="comment"
+        value={comment}
+        onChange={handleChange}
+      />
+
+      <button type="submit">Update Project</button>
+    </form>
+  );
 };
 
 export default RequestDetail;
