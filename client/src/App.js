@@ -8,7 +8,7 @@ import HomeBuyerPage from "./component/HomeBuyerPage";
 import RealtorPage from "./component/RealtorPage";
 import Signup from "./component/Signup";
 import Login from "./component/Login";
-
+import RequestDetail from "./component/RequestDetail";
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   const [requests, setRequests] = useState([])
 
   useEffect(() => {
-    fetch('https://real-genie.herokuapp.com/requests')
+    fetch('http://localhost:3000/requests')
         .then(resp => resp.json())
         .then(data => setRequests(data))
 }, [])
@@ -38,15 +38,23 @@ function handleDelete(id) {
           <Route exact path="/realtors">
             <RealtorPage requests={requests} handleDelete={handleDelete}/> 
           </Route>
+          
           <Route exact path="/homebuyer">
             <HomeBuyerPage/>
           </Route>
+          
           <Route  path="/signup">
             <Signup />
           </Route>
+          
           <Route exact path="/login">
             <Login setUser = {setUser}/>
           </Route>
+
+          <Route path="/:id/RequestDetail">
+            <RequestDetail/>
+          </Route>
+
           <Route exact path="/">
             <Home />
           </Route>
