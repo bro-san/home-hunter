@@ -4,12 +4,12 @@ import { Card, Form, Label, Button, Input, Checkbox } from 'semantic-ui-react';
 
 const Signup = () => {
     const [form, setFormData] = useState({
-        name: "placeholder",
+        name: "Name",
         company: "",
         location: "",
         username: "",
         email: "",
-        password: "something",
+        password: "Password",
         admin: "false"
 
     })

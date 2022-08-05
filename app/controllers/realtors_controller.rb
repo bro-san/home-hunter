@@ -2,7 +2,7 @@ class RealtorsController < ApplicationController
     # skip_before_action :authenticate_realtor
     # # Above line needs to be in every controller 
     # that we want to run that does not require authentication 
-     before_action :authenticate_realtor
+     skip_before_action :authenticate_realtor
 
     def index 
         render json: Realtor.all, status: :ok

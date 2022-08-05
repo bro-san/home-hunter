@@ -12,13 +12,8 @@ import RequestDetail from "./component/RequestDetail";
 
 
 function App() {
-  const [user, setUser] = useState("false");
+  const [user, setUser] = useState(false);
   const [requests, setRequests] = useState([])
-
-
-
-
-
 
   useEffect(() => {
     fetch('http://localhost:3000/requests')
