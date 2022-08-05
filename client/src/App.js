@@ -6,11 +6,13 @@ import NavBar from './component/NavBar'
 import Home from './component/Home';
 import HomeBuyerPage from "./component/HomeBuyerPage";
 import RealtorPage from "./component/RealtorPage";
-
+import Signup from "./component/Signup";
+import Login from "./component/Login";
+import RequestDetail from "./component/RequestDetail";
 
 
 function App() {
-
+  const [user, setUser] = useState(" ");
   const [requests, setRequests] = useState([])
 
   useEffect(() => {
@@ -36,15 +38,29 @@ function handleDelete(id) {
   return (
     <>
       <Header>
-        <NavBar />
+        <NavBar user = {user} setUser = {setUser}/>
       </Header>
       <Switch>
           <Route exact path="/realtors">
             <RealtorPage requests={requests} handleDelete={handleDelete}/> 
           </Route>
+          
           <Route exact path="/homebuyer">
             <HomeBuyerPage responses={responses}/>
           </Route>
+          
+          <Route  path="/signup">
+            <Signup />
+          </Route>
+          
+          <Route exact path="/login">
+            <Login setUser = {setUser}/>
+          </Route>
+
+          <Route path="/:id/RequestDetail">
+            <RequestDetail/>
+          </Route>
+
           <Route exact path="/">
             <Home />
           </Route>
