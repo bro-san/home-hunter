@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Card, Button, Icon } from "semantic-ui-react";
 
 
 
@@ -10,89 +11,51 @@ const RequestDetail = () => {
    const { id } = useParams();
 
    useEffect(() => {
-      fetch(`https://gentle-coast-35647.herokuapp.com/games/${id}`)
+      fetch(`http://localhost:3000/requests/${id}`)
          .then((r) => r.json())
-         .then((game) => {
-            setGame(game);
+         .then((request) => {
+            setRequest(request);
             setIsLoaded(true);
-            setEggs(game.easterEggs)
          });
    }, [id]);
 
    if (!isLoaded) return <h2>Loading...</h2>;
 
-   const { name, image, description, easterEggs } = game;
+   const { home_buyer_id, location_size, comment, wish1, wish2, wish3, image } = request;
 
-   function handleSubmit(e) {
-      e.preventDefault();
-      const newEggs = [...easterEggs, eggText]
-      fetch(`https://gentle-coast-35647.herokuapp.com/games/${id}`, {
-         method: "PATCH",
-         headers: {
-            "Content-Type": "application/json",
-         },
-         body: JSON.stringify({
-            easterEggs: newEggs,
-         }),
-      })
-         .then((r) => r.json())
-         .then((updatedGame) => {onAddEgg(updatedGame)
-            setEggs(updatedGame.easterEggs)
-         })
-         .then(() => {
-            setEggText("")
+   // function handleSubmit(e) {
+   //    e.preventDefault();
+   //    const updatedRequest = [...easterEggs, eggText]
+   //    fetch(`http://localhost:3000/requests/${id}`, {
+   //       method: "PATCH",
+   //       headers: {
+   //          "Content-Type": "application/json",
+   //       },
+   //       body: JSON.stringify({
+   //          easterEggs: newEggs,
+   //       }),
+   //    })
+   //       .then((r) => r.json())
+   //       .then((updatedGame) => {onAddEgg(updatedGame)
+   //          setEggs(updatedGame.easterEggs)
+   //       })
+   //       .then(() => {
+   //          setEggText("")
             
-         })
-      }
-
-      const eggDisplay = eggs.map(egg => {
-         return(<li key={egg}>{egg}</li>)
-      })
+   //       })
+   //    }
 
    return (
-   <>
-   <Card id="card-details"sx={{ maxWidth: 600 }}>
-       <div>
-       <CardHeader
-        title={name}
-      />
-      <CardMedia
-        component="img"
-        height="194"
-        image={image}
-        alt={name}
-      />
-      </div>
-      <div>
-      <CardContent>
-      <h3>Description:</h3>
-        <Typography variant="body2" color="text.secondary">{description}</Typography>
-      </CardContent>
-         
-      <CardContent> 
-         <h2>Easter Eggs Found:</h2>
-         <ul>
-            {eggDisplay}
-         </ul>
-         <h2>Submit a New Easter Egg!</h2>
-         <form className="form-class" onSubmit={handleSubmit}>
-         <TextField
-            type="text"
-            label="Add an egg!"
-               name='easterEgg'
-               value={eggText}
-               onChange={(e) => setEggText(e.target.value)}
-            />
-            <button className="search-button" type='submit'>Add Egg</button>
-         </form>
-      </CardContent>
-         
-
-      </div>
-   </Card>
-     
-         
-   </>
+   <Card>
+      <Card.Content class="header">{home_buyer_id}'s Request</Card.Content >
+      <Card.Content class="header"><img src={image} alt={home_buyer_id + "'s request"}/></Card.Content>
+      {/* <Card.Content  class="header">Willing to relocate: {locationNeed ? "Yes":"No"} </Card.Content > */}
+      <Card.Content  class="header">Desired size of home: {location_size} ft</Card.Content >
+      <Card.Content  class="header">Buyer's wish #1: {wish1}</Card.Content >
+      <Card.Content  class="header">Buyer's wish #2: {wish2}</Card.Content>
+      <Card.Content  class="header">Buyer's wish #3:{wish3}</Card.Content >
+      <Card.Content  class="header">Buyer's comments:{comment}</Card.Content >
+</Card>
    );
 };
 
