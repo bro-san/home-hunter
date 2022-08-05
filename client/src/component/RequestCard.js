@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 import { Card, Button, Icon } from "semantic-ui-react";
 
-function RequestCard ({id, buyer_id, locationSize, comment, wish1, wish2, wish3, image, handleDelete}){
+function RequestCard ({id, locationSize, comment, wish1, wish2, wish3, image, buyerName, handleDelete}){
 
     function handleClick() {
         fetch(`http://localhost:3000/requests/${id}`, {
@@ -14,8 +14,8 @@ function RequestCard ({id, buyer_id, locationSize, comment, wish1, wish2, wish3,
 
     return (
         <Card>
-                <Card.Content class="header">{buyer_id}'s Request</Card.Content >
-                <Card.Content class="header"><img src={image} alt={buyer_id + "'s request"}/></Card.Content>
+                <Card.Content class="header">{buyerName}'s Request</Card.Content >
+                <Card.Content class="header"><img src={image} alt={buyerName + "'s request"}/></Card.Content>
                 {/* <Card.Content  class="header">Willing to relocate: {locationNeed ? "Yes":"No"} </Card.Content > */}
                 <Card.Content  class="header">Desired size of home: {locationSize} ft</Card.Content >
                 <Card.Content  class="header">Buyer's wish #1: {wish1}</Card.Content >

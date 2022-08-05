@@ -22,7 +22,7 @@ class RequestsController < ApplicationController
         head :no_content
     end
 
-    def updated
+    def update
         request = Request.find(params[:id])
         request.update!(request_params)
         render json: request, status: :accepted

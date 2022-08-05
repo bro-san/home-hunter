@@ -4,7 +4,7 @@ import { Card, Container, Form, Label, Button, Input } from 'semantic-ui-react';
 
 function HomeBuyerPage({responses}){
     const responseList = responses.map(response => {
-        return <ResponseCard key={response.id} realtor_id={response.realtor_id} home_buyer_id={response.home_buyer_id} locationNeed={response.location} description={response.description} wish1={response.wish1} wish2={response.wish2} wish3={response.wish3}/>
+        return <ResponseCard key={response.id} realtorName={response.realtor.name} homeBuyerName={response.home_buyer.name} location={response.location} description={response.description}/>
     })
     
     const options = [
@@ -93,7 +93,7 @@ function HomeBuyerPage({responses}){
                 </Form.Field>
                 <Form.Field>
                     <Label for="buyerform">Inspirational Image: <br></br> <br></br>
-                        <Input placeholder="enter image url" onChange={(e) => setComment(e.target.value)}/>
+                        <Input placeholder="enter image url" onChange={(e) => setImage(e.target.value)}/>
                     </Label>
                 </Form.Field>
                 <Form.Field>

@@ -16,6 +16,7 @@ function RealtorPage({requests, handleDelete}){
         comment={request.comment} wish1={request.wish1} 
         wish2={request.wish2} wish3={request.wish3} 
         image={request.image}
+        buyerName={request.home_buyer.name}
         handleDelete={handleDelete}/>
     })
 
