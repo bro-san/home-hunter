@@ -4,14 +4,14 @@ import { Container, Form, Label, Button, Input } from 'semantic-ui-react';
 // import { useState, useEffect } from 'react';
 
 const options = [
-    { key: 'y', text: 'Yes', value: 'yes' },
-    { key: 'n', text: 'No', value: 'no' },
+    { key: 'y', text: 'Yes', value: true },
+    { key: 'n', text: 'No', value: false },
   ]
 
 function HomeBuyerPage(){
     const [homeBuyer, setHomeBuyer] = useState("");
-    // const [locationSpecific, setLocationSpecific] = useState("");
-    const [locationSize, setLocationSize] = useState("");
+    // const [locationSpecific, setLocationSpecific] = useState(null);
+    const [locationSize, setLocationSize] = useState(0);
     const [comment, setComment] = useState("");
     const [wish1, setWish1] = useState("");
     const [wish2, setWish2] = useState("");
@@ -58,16 +58,16 @@ function HomeBuyerPage(){
             <h1>Homebuyer</h1>
             <Container textAlign="center">
                 <Form onSubmit={handleSubmit}>
-                {/* <Form.Field> 
-                    <Label> Location Prefence? <br></br> <br></br>
-                        <Form.Select options={options} placeholder='Willing to Relocate?' onChange={(e) => setLocationSpecific(e.target.value)}/>
-                    </Label>
-                </Form.Field> */}
                 <Form.Field>
                     <Label for="buyerform">Home Buyer ID: <br></br> <br></br>
                         <Input placeholder='0' onChange={(e) => setHomeBuyer(e.target.value)}/>
                     </Label>
                 </Form.Field>
+                {/* <Form.Field> 
+                    <Label> Location Prefence? <br></br> <br></br>
+                        <Form.Select options={options} placeholder='Willing to Relocate?' onChange={(e) => console.log(e.target)}/>
+                    </Label>
+                </Form.Field> */}
                 <Form.Field>
                     <Label for="buyerform">Desired Square Footer: <br></br> <br></br>
                         <Input placeholder='0' onChange={(e) => setLocationSize(e.target.value)}/>
@@ -86,6 +86,11 @@ function HomeBuyerPage(){
                 <Form.Field>
                     <Label for="buyerform">Wish #3: <br></br> <br></br>
                         <Input placeholder="What's your third wish?" onChange={(e) => setWish3(e.target.value)}/>
+                    </Label>
+                </Form.Field>
+                <Form.Field>
+                    <Label for="buyerform">Inspirational Image: <br></br> <br></br>
+                        <Input placeholder="enter image url" onChange={(e) => setComment(e.target.value)}/>
                     </Label>
                 </Form.Field>
                 <Form.Field>

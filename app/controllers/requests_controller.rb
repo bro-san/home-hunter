@@ -25,12 +25,12 @@ class RequestsController < ApplicationController
     def updated
         request = Request.find(params[:id])
         request.update!(request_params)
-        render json: request
+        render json: request, status: :accepted
     end
 
     private
 
     def request_params
-        params.permit(:home_buyer_id, :location_specific, :location_size, :comment, :wish1, :wish2, :wish3, :image)
+        params.permit(:id, :home_buyer_id, :location_specific, :location_size, :comment, :wish1, :wish2, :wish3, :image)
     end
 end
