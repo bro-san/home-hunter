@@ -2,11 +2,18 @@ import React from "react";
 import RequestCard from "./RequestCard";
 import { Container } from 'semantic-ui-react';
 // import { Card, Form, Label, Button, Input } from 'semantic-ui-react';
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-
-function RealtorPage({requests, handleDelete}){
+function RealtorPage({user}){
    
+    const [requests, setRequests] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:3000/requests')
+            .then(resp => resp.json())
+            .then(data => setRequests(data))
+    }, [user])
+
     const requestList = requests.map(request => {
         return <RequestCard key={request.id}
         id={request.id}
@@ -19,7 +26,12 @@ function RealtorPage({requests, handleDelete}){
         buyerName={request.home_buyer.name}
         handleDelete={handleDelete}/>
     })
-    
+
+    function handleDelete(id) {
+        const deleteCard = requests.filter(request => request.id !== id)
+        setRequests(deleteCard)
+        console.log("Deleted!")
+      }
     return (
         <Container textAlign="center"> 
             <h1>Realtor</h1>

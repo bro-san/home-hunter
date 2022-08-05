@@ -13,13 +13,6 @@ import RequestDetail from "./component/RequestDetail";
 
 function App() {
   const [user, setUser] = useState(false);
-  const [requests, setRequests] = useState([])
-
-  useEffect(() => {
-    fetch('http://localhost:3000/requests')
-        .then(resp => resp.json())
-        .then(data => setRequests(data))
-}, [])  
 
 const [responses, setResponses] = useState([])
 
@@ -29,12 +22,6 @@ const [responses, setResponses] = useState([])
         .then(data => setResponses(data))
 }, [])
 
-function handleDelete(id) {
-  const deleteCard = requests.filter(request => request.id !== id)
-  setRequests(deleteCard)
-  console.log("Deleted!")
-}
-
   return (
     <>
       <Header>
@@ -42,7 +29,7 @@ function handleDelete(id) {
       </Header>
       <Switch>
           <Route exact path="/realtors">
-            <RealtorPage requests={requests} handleDelete={handleDelete}/> 
+            <RealtorPage user={user}/> 
           </Route>
           
           <Route exact path="/homebuyer">

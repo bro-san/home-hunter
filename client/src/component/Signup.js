@@ -44,7 +44,8 @@ const Signup = () => {
     //     //   .catch(error => console.log('error', error));
        
     // }
-    function handleSubmit() {
+    function handleSubmit(e) {
+        e.preventDefault()
         fetch('/realtors', {
           method: "POST",
           headers: {
@@ -71,7 +72,7 @@ const Signup = () => {
   return (
     <Container textAlign="center"> 
         <h1>Signup</h1>
-        <Form onSubmit={()=> handleSubmit()}>
+        <Form onSubmit={(e)=> handleSubmit(e)}>
 
             <Form.Field>
                 <label>Name</label>
