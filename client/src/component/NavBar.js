@@ -9,7 +9,7 @@ function NavBar(){
          <Menu textAlign="center">
             <Menu.Menu position='left'>
                <Menu.Item class='navbar'>
-                  <NavLink exact to='/'>   
+                  <NavLink exact to='/home'>   
                      <Button>Home</Button>
                   </NavLink>
                </Menu.Item>
