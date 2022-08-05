@@ -18,13 +18,14 @@ class RealtorsController < ApplicationController
     def create
         
         realtor = Realtor.create(realtor_params)
-        # session[:realtor_id] = realtor.realtor.id
-        render json: realtor, status: :ok
-     
-
+        if realtor.valid?
+            session[:realtor_id] = realtor.id
+            render json: realtor, status: :ok
+       
         
-        
-        
+       else
+            render json: {errors: realtor.errors.full_messages}, status: :unprocessable_entity
+       end
     end
 
     private
