@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  before_action :authenticate_realtor, only: [:create]
+  skip_before_action :authenticate_realtor
 
   def create
     
@@ -16,10 +16,11 @@ class SessionsController < ApplicationController
 
 
   def destroy
-      session.delete(:realtor_id) 
+      session.delete(:realtor_id)
+      render json: {message: "logged off"}, status: :ok
   end
 
-
+  
 
 end
  

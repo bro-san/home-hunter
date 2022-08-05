@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Container } from 'semantic-ui-react';
 import { Card, Form, Label, Button, Input } from 'semantic-ui-react';
+import { useHistory } from "react-router-dom";
 
 const Login = ({setUser}) => {
 
@@ -8,10 +9,11 @@ const Login = ({setUser}) => {
     username: " ",
     password: " "
   })
+  const history = useHistory();
 
-  function handleSubmit(){
+  function handleSubmit(e){
       
-  
+      
       fetch('/login', {
         method: 'POST',
         headers:{'Content-Type': 'application/json',
@@ -22,15 +24,19 @@ const Login = ({setUser}) => {
           "password": form.password.trim()
         })
       })
+      
         .then(response => {
           if(response.ok){
-            response.json().then(function(value) {
-              window.location = 'http://localhost:4000/realtors';
-              console.log(value);
-              setUser("newUser")
+            setUser(true)
+            response.json().then(() => {
+              history.push("/realtors")
           }
 
         )}})
+       
+        
+        
+        
         
         
   }
@@ -48,7 +54,7 @@ const Login = ({setUser}) => {
 
     <Container textAlign="center"> 
         <h1>Login</h1>
-        <Form  onSubmit={()=> handleSubmit()}>
+        <Form  onSubmit={(e)=> handleSubmit(e)}>
 
         <Form.Field>
             <label>Username</label>

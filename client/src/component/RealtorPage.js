@@ -19,7 +19,7 @@ function RealtorPage({requests, handleDelete}){
         buyerName={request.home_buyer.name}
         handleDelete={handleDelete}/>
     })
-
+    
     return (
         <Container textAlign="center"> 
             <h1>Realtor</h1>
