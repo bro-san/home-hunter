@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import { Container, Form, Label, Button, Input } from 'semantic-ui-react';
+import ResponseCard from "./ResponseCard";
+import { Container, Form, Label, Button, Input, TextArea } from 'semantic-ui-react';
 // import { Card } from 'semantic-ui-react';
 // import { useState, useEffect } from 'react';
 
@@ -8,7 +9,7 @@ const options = [
     { key: 'n', text: 'No', value: 'no' },
   ]
 
-function HomeBuyerPage(){
+function HomeBuyerPage(responses){
     const [homeBuyer, setHomeBuyer] = useState("");
     // const [locationSpecific, setLocationSpecific] = useState("");
     const [locationSize, setLocationSize] = useState("");
@@ -17,6 +18,11 @@ function HomeBuyerPage(){
     const [wish2, setWish2] = useState("");
     const [wish3, setWish3] = useState("");;
     const [image, setImage] = useState("")
+
+    const responseList = responses.responses.map(response => {
+        return <ResponseCard key={response.id} realtor_id={response.realtor_id} home_buyer_id={response.home_buyer_id} locationNeed={response.location} description={response.description} wish1={response.wish1} wish2={response.wish2} wish3={response.wish3}/>
+    })
+
 
     function handleSubmit(e) {
        e.preventDefault();
@@ -27,7 +33,7 @@ function HomeBuyerPage(){
              "Content-Type": "application/json",
           },
           body: JSON.stringify({
-             hom_buyer_id: parseInt(homeBuyer),
+             home_buyer_id: parseInt(homeBuyer),
             //  location_specific: locationSpecific, 
             location_size: parseInt(locationSize),
              comment: comment,
@@ -55,8 +61,9 @@ function HomeBuyerPage(){
 
     return (
         <>
-            <h1>Homebuyer</h1>
+            
             <Container textAlign="center">
+                <h1>HomeGenie</h1>
                 <Form onSubmit={handleSubmit}>
                 {/* <Form.Field> 
                     <Label> Location Prefence? <br></br> <br></br>
@@ -64,38 +71,40 @@ function HomeBuyerPage(){
                     </Label>
                 </Form.Field> */}
                 <Form.Field>
-                    <Label for="buyerform">Home Buyer ID: <br></br> <br></br>
+                    <Label for="buyerform">Home Buyer ID: </Label>
                         <Input placeholder='0' onChange={(e) => setHomeBuyer(e.target.value)}/>
-                    </Label>
                 </Form.Field>
                 <Form.Field>
-                    <Label for="buyerform">Desired Square Footer: <br></br> <br></br>
+                    <Label for="buyerform">Desired Square Footer: </Label>
                         <Input placeholder='0' onChange={(e) => setLocationSize(e.target.value)}/>
-                    </Label>
+                    
                 </Form.Field>
                 <Form.Field>
-                    <Label for="buyerform">Wish #1: <br></br> <br></br>
+                    <Label for="buyerform">Wish #1: </Label>
                         <Input placeholder="What's your first wish?" onChange={(e) => setWish1(e.target.value)}/>
-                    </Label>
+                    
                 </Form.Field>
                 <Form.Field>
-                    <Label for="buyerform">Wish #2: <br></br> <br></br>
+                    <Label for="buyerform">Wish #2:  </Label>
                         <Input placeholder="What's your second wish?" onChange={(e) => setWish2(e.target.value)}/>
-                    </Label>
+                   
                 </Form.Field>
                 <Form.Field>
-                    <Label for="buyerform">Wish #3: <br></br> <br></br>
+                    <Label for="buyerform">Wish #3: </Label>
                         <Input placeholder="What's your third wish?" onChange={(e) => setWish3(e.target.value)}/>
-                    </Label>
+                    
                 </Form.Field>
                 <Form.Field>
-                    <Label for="buyerform">Additional Comments? <br></br> <br></br>
+                    <Label for="buyerform">Additional Comments? </Label>
                         <Input placeholder="Anything else?" onChange={(e) => setComment(e.target.value)}/>
-                    </Label>
+                    
                 </Form.Field>
                 <Button type='submit'>Submit</Button>
                 </Form>
             </Container>
+            <Container textAlign="center">
+            {responseList}
+        </Container>
         </>
     )
 }

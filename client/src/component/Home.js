@@ -8,7 +8,7 @@ function Home(){
     return (
         <Container textAlign="center">
         <Header class="ui sizer vertical segment">
-            <h1 class="ui huge header ">Welcome to HomeHunter!</h1>  
+            <h1 class="ui huge header ">Welcome to HomeGenie!</h1>  
         </Header>
             <Menu  fluid widths={2} class="ui two column grid">
                 <Menu.Item textAlign="center" class="column">
@@ -22,12 +22,8 @@ function Home(){
                     </h2>
                 </Menu.Item>
             </Menu>
-        <Card.Group itemsPerRow={4}>
-        {/* <Card>
-            <Header class="ui huge header">New Addition:</Header>
-        </Card> */}
-        </Card.Group>
         </Container>
+        
     )
 }
 

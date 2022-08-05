@@ -14,6 +14,13 @@ import Login from "./component/Login";
 function App() {
 
   const [requests, setRequests] = useState([])
+  const [responses, setResponses] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:3000/responses')
+        .then(resp => resp.json())
+        .then(data => setResponses(data))
+}, [])
 
   useEffect(() => {
     fetch('http://localhost:3000/requests')
@@ -39,7 +46,7 @@ function handleDelete(id) {
             <RealtorPage requests={requests} handleDelete={handleDelete}/> 
           </Route>
           <Route exact path="/homebuyer">
-            <HomeBuyerPage/>
+            <HomeBuyerPage responses={responses}/>
           </Route>
           <Route  path="/signup">
             <Signup />

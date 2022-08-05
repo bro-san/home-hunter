@@ -5,53 +5,31 @@ import { NavLink } from 'react-router-dom';
 function NavBar(){
  
     return (
-
-        <Header>
-            <Menu textAlign="center">
-                  <Button class='ui button'>
-                     <NavLink exact to='/'>   
-                     Home
-                     </NavLink>
-                  </Button>
-
+      <Header>
+         <Menu textAlign="center">
+            <Menu.Menu position='left'>
                <Menu.Item class='navbar'>
-                  <Button primary>
-                     <NavLink exact to='/signup'>
-                     Sign up
-                     </NavLink>
-                  </Button>
+                  <NavLink exact to='/'>   
+                     <Button>Home</Button>
+                  </NavLink>
+               </Menu.Item>
+            </Menu.Menu>
+
+            <Menu.Menu position='right'>
+               <Menu.Item class='navbar'>
+                  <NavLink exact to='/signup'>
+                     <Button primary>Sign up</Button>
+                  </NavLink>
                </Menu.Item>
 
                <Menu.Item class='navbar'>
-                  <Button>
                   <NavLink exact to='/login'>   
-                     Log-in
-                     </NavLink>
-                     </Button>
+                     <Button>Log-in</Button>
+                  </NavLink>
                </Menu.Item>
-
-
-            </Menu>
-            {/* <Button icon>
-               <NavLink exact to='/animals'>
-                  <span></span>
-                  <Icon name='paw' />
-                  <br></br>
-                  Animals
-               </NavLink>
-            </Button> */}
-            {/* <Button icon>
-               <NavLink exact to='/habitats'>
-                  <span></span>
-                  <Icon name='world' />
-                  <br></br>
-                  Habitats
-               </NavLink>
-            </Button> */}
-            
-               
+            </Menu.Menu>
+         </Menu>
       </Header>
-
     )
 }
 

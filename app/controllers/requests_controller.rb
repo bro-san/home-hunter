@@ -15,8 +15,13 @@ class RequestsController < ApplicationController
     end
 
     def destroy
+        
         request = Request.find(params[:id])
+        params_id = params[:id]
+        response = Response.where(request_id: params[:id])
+        response.destroy_all
         request.destroy
+        
         head :no_content
     end
 
@@ -29,6 +34,6 @@ class RequestsController < ApplicationController
     private
 
     def request_params
-        params.permit(:home_buyer_id, :location_specific, :location_size, :comment, :wish1, :wish2, :wish3, :image)
+        params.permit(:home_buyer_id, :location_specific, :location_size, :comment, :wish1, :wish2, :wish3, :image, :request)
     end
 end
