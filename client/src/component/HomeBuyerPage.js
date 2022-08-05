@@ -58,13 +58,13 @@ function HomeBuyerPage({responses}){
 
     return (
         <>
-            <h1>Homebuyer</h1>
+            
             <Container textAlign="center">
+                <h1>Home Buyers</h1>
                 <Form onSubmit={handleSubmit}>
                 <Form.Field>
-                    <Label for="buyerform">Home Buyer ID: <br></br> <br></br>
+                    <label>Home Buyer ID: </label>
                         <Input placeholder='0' onChange={(e) => setHomeBuyer(e.target.value)}/>
-                    </Label>
                 </Form.Field>
                 {/* <Form.Field> 
                     <Label> Location Prefence? <br></br> <br></br>
@@ -72,40 +72,45 @@ function HomeBuyerPage({responses}){
                     </Label>
                 </Form.Field> */}
                 <Form.Field>
-                    <Label for="buyerform">Desired Square Footer: <br></br> <br></br>
+                    <label>Desired Square Footage:</label>
                         <Input placeholder='0' onChange={(e) => setLocationSize(e.target.value)}/>
-                    </Label>
                 </Form.Field>
+
                 <Form.Field>
-                    <Label for="buyerform">Wish #1: <br></br> <br></br>
+                    <label for="buyerform">Wish #1:</label>
                         <Input placeholder="What's your first wish?" onChange={(e) => setWish1(e.target.value)}/>
-                    </Label>
                 </Form.Field>
+
                 <Form.Field>
-                    <Label for="buyerform">Wish #2: <br></br> <br></br>
+                    <label for="buyerform">Wish #2:</label>
                         <Input placeholder="What's your second wish?" onChange={(e) => setWish2(e.target.value)}/>
-                    </Label>
                 </Form.Field>
+
                 <Form.Field>
-                    <Label for="buyerform">Wish #3: <br></br> <br></br>
+                    <label for="buyerform">Wish #3:</label>
                         <Input placeholder="What's your third wish?" onChange={(e) => setWish3(e.target.value)}/>
-                    </Label>
                 </Form.Field>
+
                 <Form.Field>
-                    <Label for="buyerform">Inspirational Image: <br></br> <br></br>
+                    <label for="buyerform">Inspirational Image:</label>
                         <Input placeholder="enter image url" onChange={(e) => setImage(e.target.value)}/>
-                    </Label>
+                    
                 </Form.Field>
+
                 <Form.Field>
-                    <Label for="buyerform">Additional Comments? <br></br> <br></br>
+                    <label for="buyerform">Additional Comments?</label>
                         <Input placeholder="Anything else?" onChange={(e) => setComment(e.target.value)}/>
-                    </Label>
+                    
                 </Form.Field>
+
                 <Button type='submit'>Submit</Button>
                 </Form>
             </Container>
+            <br></br> <br></br>
             <Container textAlign="center">
-            {responseList}
+                <Card.Group itemsPerRow={3}>
+                    {responseList}
+                </Card.Group>
             </Container>
         </>
     )
