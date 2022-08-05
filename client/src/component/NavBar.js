@@ -18,37 +18,34 @@ function NavBar({user, setUser}){
    console.log(user)
     return (
 
-        <Header>
-            <Menu textAlign="center">
-                  <Button class='ui button'>
-                     <NavLink exact to='/'>   
-                     Home
-                     </NavLink>
-                  </Button>
-
-               <Menu.Item class='navbar'>
-                  <Button primary>
-                     <NavLink exact to='/signup'>
-                     Sign up
-                     </NavLink>
-                  </Button>
+      <Header>
+      <Menu textAlign="center">
+         <Menu.Menu position='left'>
+               <Menu.Item>
+                  <NavLink exact to='/'>   
+                     <Button >Home</Button>
+                  </NavLink>
                </Menu.Item>
-
-               <Menu.Item class='navbar'>
-                  {user==null || user == false ? <Button>
-                  <NavLink exact to='/login'>   
-                     Log-in
-                  </NavLink> 
-                  </Button> :
-                  <Button onClick={(e)=> onLogout(e)}>
-                     Logout
-                  </Button>}
-                  
-               </Menu.Item>
-
-            </Menu>
-               
-      </Header>
+      </Menu.Menu>
+      <Menu.Menu position='right'>
+          <Menu.Item class='navbar'>
+               <NavLink exact to='/signup'>
+                  <Button primary>Sign up</Button>
+               </NavLink>
+            </Menu.Item>
+            <Menu.Item class='navbar'>
+            {user == null ? <Button>
+            <NavLink exact to='/login'>   
+               Log-in
+            </NavLink> 
+            </Button> :
+            <Button onClick={()=> onLogout()}>
+               Logout
+            </Button>}
+         </Menu.Item>
+      </Menu.Menu>
+      </Menu>
+</Header>
 
     )
 }

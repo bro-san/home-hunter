@@ -25,10 +25,10 @@ development:
   <<: *default
   
 
-  database: brodysmac
+  database: justinhobbs
   host: localhost
   port: 5432
-  user: brodysmac
+  user: justinhobbs
   # password: 
 
   # The specified database role being used to connect to postgres.
@@ -64,9 +64,9 @@ development:
 test:
   <<: *default
 
-  database: brodysmac
+  database: justinhobbs
   port: 5432
-  user: brodysmac
+  user: justinhobbs
   # password: 
 
 
