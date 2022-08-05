@@ -44,25 +44,7 @@ function NavBar({user, setUser}){
                   
                </Menu.Item>
 
-
             </Menu>
-            {/* <Button icon>
-               <NavLink exact to='/animals'>
-                  <span></span>
-                  <Icon name='paw' />
-                  <br></br>
-                  Animals
-               </NavLink>
-            </Button> */}
-            {/* <Button icon>
-               <NavLink exact to='/habitats'>
-                  <span></span>
-                  <Icon name='world' />
-                  <br></br>
-                  Habitats
-               </NavLink>
-            </Button> */}
-            
                
       </Header>
 

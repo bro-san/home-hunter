@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom"
+
 import { Card, Button, Icon } from "semantic-ui-react";
-// import { Image, Header } from "semantic-ui-react";
 
 function RequestCard ({id, buyer_id, locationSize, comment, wish1, wish2, wish3, image, handleDelete}){
 
@@ -22,9 +23,9 @@ function RequestCard ({id, buyer_id, locationSize, comment, wish1, wish2, wish3,
                 <Card.Content  class="header">Buyer's wish #3:{wish3}</Card.Content >
                 <Card.Content  class="header">Buyer's comments:{comment}</Card.Content >
                 <Button >Respond</Button>
-                <Button ><NavLink exact to='/HEEEEEEE'>   
-                     Home
-                     </NavLink>
+                <Button ><Link to={`/${id}/RequestDetail`}>   
+                     Update Requeast
+                     </Link>
                 </Button>
                 <Button animated onClick={handleClick}>
                     <Button.Content visible >Delete Request?</Button.Content>
@@ -36,6 +37,5 @@ function RequestCard ({id, buyer_id, locationSize, comment, wish1, wish2, wish3,
 
     )
 }
-
 
 export default RequestCard;
