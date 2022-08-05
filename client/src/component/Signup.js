@@ -4,12 +4,12 @@ import { Card, Form, Label, Button, Input, Checkbox } from 'semantic-ui-react';
 
 const Signup = () => {
     const [form, setFormData] = useState({
-        name: "placeholder",
+        name: "Name",
         company: "",
         location: "",
         username: "",
         email: "",
-        password: "something",
+        password: "Password",
         admin: "false"
 
     })
@@ -44,7 +44,8 @@ const Signup = () => {
     //     //   .catch(error => console.log('error', error));
        
     // }
-    function handleSubmit() {
+    function handleSubmit(e) {
+        e.preventDefault()
         fetch('/realtors', {
           method: "POST",
           headers: {
@@ -71,7 +72,7 @@ const Signup = () => {
   return (
     <Container textAlign="center"> 
         <h1>Signup</h1>
-        <Form onSubmit={()=> handleSubmit()}>
+        <Form onSubmit={(e)=> handleSubmit(e)}>
 
             <Form.Field>
                 <label>Name</label>

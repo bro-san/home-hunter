@@ -1,18 +1,24 @@
 import React, { useEffect } from "react";
 import { Menu, Header, Button }  from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 function NavBar({user, setUser}){
+const history = useHistory();
   
 
    function onLogout(e){
       e.preventDefault()
-      setUser(false)
       fetch('/logout', {
          method: 'DELETE',
       })
-     
-      
+      .then(response => {
+         if(response.ok){
+           setUser(false)
+           response.json().then(() => {
+             history.push("/signup")
+         }
+       )}})
    }
  
    console.log(user)
