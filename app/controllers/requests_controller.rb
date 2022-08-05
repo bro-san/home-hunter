@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-
+    skip_before_action :authenticate_realtor
     def index 
         render json: Request.all
     end

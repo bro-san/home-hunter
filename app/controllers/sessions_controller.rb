@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  before_action :authenticate_realtor, only: [:create]
+  skip_before_action :authenticate_realtor
 
   def create
     
