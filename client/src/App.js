@@ -12,7 +12,7 @@ import Login from "./component/Login";
 
 
 function App() {
-
+  const [user, setUser] = useState(" ");
   const [requests, setRequests] = useState([])
 
   useEffect(() => {
@@ -32,7 +32,7 @@ function handleDelete(id) {
   return (
     <>
       <Header>
-        <NavBar />
+        <NavBar user = {user} setUser = {setUser}/>
       </Header>
       <Switch>
           <Route exact path="/realtors">
@@ -45,7 +45,7 @@ function handleDelete(id) {
             <Signup />
           </Route>
           <Route exact path="/login">
-            <Login />
+            <Login setUser = {setUser}/>
           </Route>
           <Route exact path="/">
             <Home />
