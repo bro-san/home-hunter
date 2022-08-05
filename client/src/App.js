@@ -21,14 +21,20 @@ function App() {
         .then(data => setRequests(data))
 }, [])
 
-// console.log(requests)
+const [responses, setResponses] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:3000/responses')
+        .then(resp => resp.json())
+        .then(data => setResponses(data))
+}, [])
 
 function handleDelete(id) {
   const deleteCard = requests.filter(request => request.id !== id)
   setRequests(deleteCard)
   console.log("Deleted!")
 }
-  
+
   return (
     <>
       <Header>
@@ -40,7 +46,7 @@ function handleDelete(id) {
           </Route>
           
           <Route exact path="/homebuyer">
-            <HomeBuyerPage/>
+            <HomeBuyerPage responses={responses}/>
           </Route>
           
           <Route  path="/signup">

@@ -1,14 +1,17 @@
 import React, {useState} from "react";
-import { Container, Form, Label, Button, Input } from 'semantic-ui-react';
-// import { Card } from 'semantic-ui-react';
-// import { useState, useEffect } from 'react';
+import ResponseCard from "./ResponseCard";
+import { Card, Container, Form, Label, Button, Input } from 'semantic-ui-react';
 
-const options = [
+function HomeBuyerPage({responses}){
+    const responseList = responses.map(response => {
+        return <ResponseCard key={response.id} realtor_id={response.realtor_id} home_buyer_id={response.home_buyer_id} locationNeed={response.location} description={response.description} wish1={response.wish1} wish2={response.wish2} wish3={response.wish3}/>
+    })
+    
+    const options = [
     { key: 'y', text: 'Yes', value: true },
     { key: 'n', text: 'No', value: false },
-  ]
-
-function HomeBuyerPage(){
+    ]
+ 
     const [homeBuyer, setHomeBuyer] = useState("");
     // const [locationSpecific, setLocationSpecific] = useState(null);
     const [locationSize, setLocationSize] = useState(0);
@@ -100,6 +103,9 @@ function HomeBuyerPage(){
                 </Form.Field>
                 <Button type='submit'>Submit</Button>
                 </Form>
+            </Container>
+            <Container textAlign="center">
+            {responseList}
             </Container>
         </>
     )
