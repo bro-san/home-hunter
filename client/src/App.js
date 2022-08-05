@@ -12,14 +12,19 @@ import Login from "./component/Login";
 
 
 function App() {
-  const [user, setUser] = useState(" ");
+  const [user, setUser] = useState("false");
   const [requests, setRequests] = useState([])
+
+
+
+
+
 
   useEffect(() => {
     fetch('http://localhost:3000/requests')
         .then(resp => resp.json())
         .then(data => setRequests(data))
-}, [])
+}, [])  
 
 // console.log(requests)
 
@@ -28,7 +33,7 @@ function handleDelete(id) {
   setRequests(deleteCard)
   console.log("Deleted!")
 }
-  
+
   return (
     <>
       <Header>

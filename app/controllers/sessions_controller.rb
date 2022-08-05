@@ -16,10 +16,11 @@ class SessionsController < ApplicationController
 
 
   def destroy
-      session.delete(:realtor_id) 
+      session.delete(:realtor_id)
+      render json: {message: "logged off"}, status: :ok
   end
 
-
+  
 
 end
  

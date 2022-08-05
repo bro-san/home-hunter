@@ -18,7 +18,7 @@ function RealtorPage({requests, handleDelete}){
         image={request.image}
         handleDelete={handleDelete}/>
     })
-
+    
     return (
         <Container textAlign="center"> 
             <h1>Realtor</h1>

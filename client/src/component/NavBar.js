@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Menu, Header, Button }  from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
 function NavBar({user, setUser}){
-   console.log(user)
-   function onLogout(){
-      setUser(null)
+  
+
+   function onLogout(e){
+      e.preventDefault()
+      setUser(false)
       fetch('/logout', {
          method: 'DELETE',
       })
-      .then(res => res.json())
-      .then(res => console.log(res))
+     
       
    }
  
+   console.log(user)
     return (
 
         <Header>
@@ -33,12 +35,12 @@ function NavBar({user, setUser}){
                </Menu.Item>
 
                <Menu.Item class='navbar'>
-                  {user == null ? <Button>
+                  {user==null || user == false ? <Button>
                   <NavLink exact to='/login'>   
                      Log-in
                   </NavLink> 
                   </Button> :
-                  <Button onClick={()=> onLogout()}>
+                  <Button onClick={(e)=> onLogout(e)}>
                      Logout
                   </Button>}
                   
